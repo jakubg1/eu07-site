@@ -1,0 +1,6 @@
+<div id="image">
+    <a href="../../images/{{ .Get 0 }}"><img src="../../images/{{ .Get 0 }}"/></a>
+    {{ if .Get 1 }}
+        <div id="caption">{{ replace (.Get 1 | markdownify) "\n" "<br>" | safeHTML }}</div>
+    {{ end }}
+</div>

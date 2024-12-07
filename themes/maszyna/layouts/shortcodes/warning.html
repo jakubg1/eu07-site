@@ -1,0 +1,3 @@
+<div id="warning">
+    {{ replace (.Inner | markdownify) "\n" "<br>" | safeHTML }}
+</div>

@@ -1,0 +1,7 @@
+Obrazki flag krajów zostały zapożyczone z poniższego repozytorium:
+Country flags have been taken from the following repo:
+
+https://github.com/hampusborgos/country-flags/tree/main/png100px
+
+Proszę brać dodatkowe flagi z tego repozytorium w celu zachowania spójności.
+Please take them from there if you want to add more languages.

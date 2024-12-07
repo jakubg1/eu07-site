@@ -1,0 +1,21 @@
+{{ define "title" }}
+  <!-- This will override the default value set in baseof.html; i.e., "{{.Site.Title}}" in the original example-->
+  {{ .Title }} &ndash; {{ .Site.Title }}
+{{ end }}
+{{ define "main" }}
+  {{ .Content }}
+  <div id="news">
+  {{ range where .Site.RegularPages "Type" "news" }}
+    <a href="{{ .Permalink }}">
+      <div id="new">
+        <div id="img">
+          <img src="../images/{{ .Params.thumbnail }}"/>
+          <div id="date">{{ if .Params.date }} {{ time.Format "2 January 2006" .Params.date }} {{ end }}</div>
+        </div>
+        <div id="title">{{ .Params.title }}</div>
+        <div id="caption">{{ .Params.subtitle }}</div>
+      </div>
+    </a>
+  {{ end }}
+  </div>
+{{ end }}

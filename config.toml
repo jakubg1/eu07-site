@@ -1,0 +1,77 @@
+languageCode = "pl-pl"
+theme = "maszyna"
+
+DefaultContentLanguage = "pl"
+relativeURLs = true
+
+[languages]
+	[languages.pl]
+		title = "MaSzyna - Symulator Pojazdów Szynowych"
+		weight = 1
+		contentDir = "content/pl"
+	[languages.en]
+		title = "MaSzyna - Rail Vehicle Simulator"
+		weight = 2
+		contentDir = "content/en"
+	[languages.cz]
+		title = "MaSzyna - Simulátor"
+		weight = 3
+		contentDir = "content/cz"
+	[languages.ro]
+		title = "MaSzyna - Simulator"
+		weight = 4
+		contentDir = "content/ro"
+	[languages.hu]
+		title = "MaSzyna - A Szimulátor"
+		weight = 5
+		contentDir = "content/hu"
+#	[languages.ru]
+#		title = "MaSzyna - Cимулятор"
+#		weight = 6
+#		contentDir = "content/ru"
+
+[menus]
+	[[menus.main]]
+		identifier = "menu_download"
+		pageRef = "/download"
+		weight = 10
+		[menus.main.params]
+			important = true
+	[[menus.main]]
+		identifier = "menu_about"
+		pageRef = "/o-projekcie"
+		weight = 20
+	[[menus.main]]
+		identifier = "menu_gallery"
+		pageRef = "/galeria"
+		weight = 30
+	[[menus.main]]
+		identifier = "menu_discord"
+		url = "https://google.com"
+		weight = 40
+		[menus.main.params]
+			newTab = true
+#	[[menus.main]]
+#		identifier = "menu_chat"
+#		url = "https://mm.milek7.pl/oauth/gitlab/login"
+#		weight = 50
+#		[menus.main.params]
+#			newTab = true
+	[[menus.main]]
+		identifier = "menu_forum"
+		url = "https://eu07.pl/forum/index.php"
+		weight = 60
+		[menus.main.params]
+			newTab = true
+	[[menus.main]]
+		identifier = "menu_wiki"
+		url = "https://wiki.eu07.pl/index.php"
+		weight = 70
+		[menus.main.params]
+			newTab = true
+	[[menus.main]]
+		identifier = "menu_contact"
+		pageRef = "/kontakt"
+		weight = 80
+
+[params]

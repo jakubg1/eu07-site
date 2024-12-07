@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="description" content="Oficjalna strona projektu MaSzyna - symulator pojazdów szynowych" />
+        <meta charset="utf-8">
+        <link rel="canonical" href="https://eu07.pl/" />
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+        {{ if .IsTranslated }}
+            {{ range .AllTranslations }}
+                <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+            {{ end }}
+        {{ end }}
+        <link rel="stylesheet" media="all" href="/css/style.css" type="text/css" />
+        <title>{{ .Site.Title }}</title>
+    </head>
+
+    <body>
+
+        <div id="menu">
+            <div id="entries">
+                <div id="logo">
+                    <a href="{{ relLangURL "" }}"><img src="/images/maszyna.png"/></a>
+                </div>
+                {{ range .Site.Menus.main }}
+                    <!-- <div id="bar"></div> -->
+                    {{ $translationExists := or .Params.newTab ($.GetPage (printf ".%s" .URL)) }} <!-- Use JavaScript to preserve the selected language! -->
+                    <div id="entry">
+                        <a href="
+                        {{ if $translationExists }}
+                            {{ relLangURL .URL }}
+                        {{ else }}
+                            {{ printf "%s?lang=%s" .URL $.Lang }}
+                        {{ end }}
+                        "
+                            {{ if eq (.URL | relLangURL) $.RelPermalink }}
+                                {{ if .Params.important }}
+                                    class="important_selected"
+                                {{ end }}
+                                class="selected"
+                            {{ end }}
+                            {{ if .Params.important }}
+                                class="important"
+                            {{ end }}
+                            {{ if .Params.newTab }}
+                                class="external"
+                                target="_blank"
+                            {{ end }}
+                        >{{ T .Identifier }}{{ if not $translationExists }} [!]{{ end }}</a>
+                    </div>
+                {{ end }}
+            </div>
+            {{ if .IsTranslated }}
+			    <div id="lang">
+                {{ range .AllTranslations }}
+                    <a href="{{ .RelPermalink }}" {{ if (in .Lang $.Language) }} class="selected" {{ end }}><img src="/images/lang/{{ .Lang }}.png" alt="{{ .Lang }}"></a>
+                {{ end }}
+                </div>
+            {{ end }}
+        </div>
+        <div id="shadow"></div>
+    
+		<div id="banner">
+			<img src="/images/banners/banner6.png"/>
+            <div id="label">
+                {{ .Title }}
+                {{ if .Params.author }}
+                    <div id="sublabel">Autor artykułu: {{ .Params.author }}</div>
+                {{ end }}
+            </div>
+		</div>
+
+		<div id="content">
+            {{ block "main" . }}
+                <!-- The part of the page that begins to differ between templates -->
+            {{ end }}
+        </div>
+        <hr/>
+        <div id="footer">Copyright MASZYNA © 2001 - {{ now.Year }}</div>
+    </body>
+</html>
